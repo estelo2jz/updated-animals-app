@@ -7,7 +7,7 @@ var people = [
     id: 0,
     name: "Monica",
     gender: "female",
-    img: "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-1/p240x240/42045073_2155312144480553_265084037184356352_n.jpg?_nc_cat=111&_nc_oc=AQnE8j9wwUaXOsKBkZeMwQ1Vn51vT-F3LvHqE_TyK-i4-r_LjoB0ZpU606qrJLHPDQStnPELPd8xDEJM48T0MJSR&_nc_ht=scontent-ort2-1.xx&_nc_tp=6&oh=5be441401c37ce2ff48352f404e3dc77&oe=5EB52DB1"
+    img: "https://images.pexels.com/photos/128756/pexels-photo-128756.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
   },
   {
     id: 1,
