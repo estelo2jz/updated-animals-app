@@ -1,8 +1,7 @@
 import React from 'react';
 import { IconContext } from 'react-icons';
-import { AiFillLike } from 'react-icons/ai';
-import { FaShare } from 'react-icons/fa';
-import { MdPeople } from 'react-icons/md';
+import { FaCartPlus } from 'react-icons/fa';
+
 
 
 function Avatar(props) {
@@ -39,16 +38,15 @@ function UserName(props) {
 }
 
 var iconStyle = {
-  marginLeft: 35
+  marginLeft: 90,
+  cursor: "pointer",
 }
 
 function GetConnected() {
   return (
-    <IconContext.Provider value={{ color: '', size: '2rem' }}>
+    <IconContext.Provider value={{ color: 'green', size: '2rem' }}>
       <div>
-        <AiFillLike style={iconStyle} />
-        <FaShare style={iconStyle} />
-        <MdPeople style={iconStyle} />
+        <FaCartPlus style={iconStyle} />
       </div>
     </IconContext.Provider>
   );
@@ -57,10 +55,10 @@ function GetConnected() {
 
 
 const Friendly = (props) => {
-  var femalePeopleItem = props.people.filter(function (person) {
-    return person.gender === 'female';
-  }).map(function (person) {
-    var friendlyStyle = {
+  var dinnerItem = props.animalsFood.filter(function (animalsFood) {
+    return animalsFood.alive === false;
+  }).map(function (animalsFood) {
+    var animalStyle = {
       display: 'inline-block',
       margin: 20,
       height: 300,
@@ -68,23 +66,23 @@ const Friendly = (props) => {
       padding: 0,
       backgroundColor: "#FFF",
       border: 'solid',
-      borderColor: 'red',
+      borderColor: 'pink',
       // WebkitFilter: "drop-shadow(0px 0px 5px #555)",
-      filter: "drop-shadow(0px 0px 5px #555)"
+      filter: "drop-shadow(0px 0px 3px #555)"
     }
     return (
-      <div key={person.id} style={friendlyStyle}>
-        <Avatar img={person.img} />
-        <UserName name={person.name} />
+      <div key={animalsFood.id} style={animalStyle}>
+        <Avatar img={animalsFood.img} />
+        <UserName name={animalsFood.name} />
         <GetConnected />
       </div>
     );
   })
 
-  var malePeopleItem = props.people.filter(function (person) {
-    return person.gender === 'male';
-  }).map(function (person) {
-    var friendlyStyle = {
+  var animalsItem = props.animalsFood.filter(function (animalsFood) {
+    return animalsFood.alive === true;
+  }).map(function (animalsFood) {
+    var animalStyle = {
       display: 'inline-block',
       margin: 20,
       height: 300,
@@ -92,26 +90,38 @@ const Friendly = (props) => {
       padding: 0,
       backgroundColor: "#FFF",
       border: 'solid',
-      borderColor: 'red',
+      borderColor: 'blue',
       // WebkitFilter: "drop-shadow(0px 0px 5px #555)",
-      filter: "drop-shadow(0px 0px 5px #555)"
+      filter: "drop-shadow(0px 0px 3px #555)"
     }
     return (
-      <div key={person.id} style={friendlyStyle}>
-        <Avatar img={person.img} />
-        <UserName name={person.name} />
+      <div key={animalsFood.id} style={animalStyle}>
+        <Avatar img={animalsFood.img} />
+        <UserName name={animalsFood.name} />
         <GetConnected />
       </div>
     );
   })
 
   return (
-    <div>
-      <h1>Males</h1>
-      <div>{malePeopleItem}</div>
-      <hr />
-      <h1>Females</h1>
-      <div>{femalePeopleItem}</div>
+    <div className="section-container">
+      <div className="section-title">
+        <h1>Dream Store</h1>
+        <div className="section-memo">
+          <p>a store like no other</p>
+        </div>
+      </div>
+
+      <div className="section-animals">  
+        <h2>Animals</h2>
+        <div>{animalsItem}</div>
+      </div>
+
+      <div className="section-dinner">
+        <hr />
+        <h2>Dinner</h2>
+        <div>{dinnerItem}</div>
+      </div>
     </div>
   )
 }
